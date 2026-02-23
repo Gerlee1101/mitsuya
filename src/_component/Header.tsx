@@ -24,7 +24,7 @@ export const Header = () => {
 
   return (
     <div className={cn(
-      "w-full border-b border-amber-300 bg-background",
+      "w-full  bg-background opacity-85",
       "fixed top-0 left-0 right-0 z-50 flex justify-between items-center"
     )}>
       <div className="w-full flex justify-between items-center px-4 md:px-8 lg:px-16 py-4">
@@ -47,16 +47,17 @@ export const Header = () => {
               {item.label}
             </Link>
           ))}
+          <div className="w-12 flex justify-center items-center bg-red-500 rounded-md">
           <Button
             variant="link"
             className={cn(
               "no-underline hover:no-underline cursor-pointer",
-              "text-foreground hover:text-blue-600 dark:hover:text-blue-400",
+              "text-foreground hover:text-white dark:hover:text-blue-400",
               "transition-colors"
             )}
           >
             <Barcode className="w-5 h-5" />
-          </Button>
+          </Button></div>
         </nav>
 
         {/* Right side: Mode toggle + Mobile menu button */}
@@ -93,6 +94,7 @@ export const Header = () => {
                 {item.label}
               </Link>
             ))}
+            <div className="p-1 bg-blue-500">
             <Button
               variant="link"
               className={cn(
@@ -104,7 +106,7 @@ export const Header = () => {
             >
               <Barcode className="w-5 h-5" />
               Barcode
-            </Button>
+            </Button></div>
           </div>
         </nav>
       )}

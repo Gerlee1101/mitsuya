@@ -32,7 +32,7 @@ export function CoverCarousel() {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((src, i) => (
-          <div key={i} className="relative w-full shrink-0 aspect-[9/2] min-h-[200px] md:min-h-[280px]">
+          <div key={i} className="mt-6 relative w-full shrink-0 aspect-9/2 min-h-50 md:min-h-70">
             <Image
               src={src}
               alt={`Cover ${i + 1}`}
@@ -69,7 +69,7 @@ export function CoverCarousel() {
             onClick={() => goTo(i)}
             className={`w-2.5 h-2.5 rounded-full transition-colors ${
               i === currentIndex
-                ? "bg-white scale-125"
+                ? "bg-blue-500 scale-125"
                 : "bg-white/50 hover:bg-white/70"
             }`}
             aria-label={`Go to slide ${i + 1}`}
