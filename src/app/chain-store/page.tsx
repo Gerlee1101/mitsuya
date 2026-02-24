@@ -1,36 +1,62 @@
+ "use client"
+
+import { Clock, MapPin, Phone } from "lucide-react"
 import Image from "next/image"
+import Autoplay from "embla-carousel-autoplay"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 export default function ChainStorePage() {
   const stores = [
     {
       id: 1,
-      image:"/branch-BZ/638e6e0a54ac0f00195106b9.webp",
+      images: [
+        "/branch-BZ/fba10184-2b3c-4bc5-999f-55a3299acb44.jpeg",
+        "/branch-BZ/e631222e-c2a3-4c61-8471-913b65513b96.jpeg",
+        "/branch-BZ/dde2cfe2-1064-4361-9a30-d263f5467f6c.jpeg",
+      ],
       name: "Баянзүрх салбар",
-      address: "Сүхбаатар дүүрэг, Сүхбаатарын талбай 1",
+      address: " Улаанбаатар хот, Баянзүрх дүүрэг, 6-р хороо, 64-р байр ,Ү-2 тоот",
+      mapLink: "https://maps.app.goo.gl/ghqBKjehe9zwirm96",
       phone: "+976 99054149",
       hours: "11:00 - 19:00",
       description: "Хот орчны төвд байрласан, хамгийн том салбар",
-      features: ["Дэлгэрэнгүй хүнс", "Кафе", "Достав"],
+      features: ["Хүнсний захын дэргэд", "Зогсоол", "Хотын төвд", "Төв замтай ойр"],
     },
     {
       id: 2,
-      image:"/branch-tz/Nijiya_KA-1.jpg",
+      images: [
+        "/branch-tz/506e851f-e619-45ad-8baf-6b00d44c1746.jpeg",
+        "/branch-tz/1fbfcf39-b753-49e3-9e16-eec8dfa6dbf9.jpeg",
+        "/branch-tz/61f839b3-988e-49cf-9028-7459ba117ac0.jpeg",
+      ],
       name: "Төмөр зам салбар",
-      address: "Хан-Уул дүүрэг, Их намын гудамж 15",
+      address: "Улаанбаатар хот, Баянгол дүүрэг, 1-р хороо, 136-р байр ,S-104 тоот",
+      mapLink: "https://maps.app.goo.gl/XG25661w4pCxjVyXA",
       phone: "+976 99001219",
-      hours: "11:00 - 19:00",
+      hours: "10:00 - 19:00",
       description: "Шөнийн 11 цаг хүртэл нээлттэй",
-      features: ["24/7 автомат", "Паркинг", "Сэргээгдэх эрчим хүч"],
+      features: ["Хүнсний Барс худалдааны төвийн хойно", "Зогсоол", "Нарны зам дагуу", "Ресторан"],
     },
     {
       id: 3,
-      image:"/branch-yarmag/2073_top.jpg",
+      images: [
+        "/branch-yarmag/2073_top.jpg",
+        "/branch-yarmag/2073_top.jpg",
+        "/branch-yarmag/2073_top.jpg",
+      ],
       name: "Яармаг салбар",
       address: "Баянгол дүүрэг, Барилгын гудамж 8",
+      mapLink: "https://maps.app.goo.gl/XG25661w4pCxjVyXA",
       phone: "+976 99892111",
       hours: "11:00 - 20:00",
       description: "Гэр бүлийн хэрэглээнд зориулсан",
-      features: ["Хүүхэд зуслан", "Дэлгэрэнгүй сонголт", "Зөвлөгөө"],
+      features: ["", "Дэлгэрэнгүй сонголт", "Зөвлөгөө"],
     },
   ]
   const advantages = [
@@ -52,8 +78,8 @@ export default function ChainStorePage() {
     <main className="min-h-screen bg-background border-4 border-green-700">
       <div className="px-4 md:px-8 lg:px-16 py-12">
         {/* Hero / Танилцуулга */}
-        <section className="mb-16 text-center">
-          <div className="inline-block px-4 py-1.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-sm font-medium mb-6">
+        <section className="mb-16 mt-16 text-center">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-blue-600 dark:bg-blue-600 text-white dark:text-foreground text-sm font-medium mb-6">
             Хүнсний сүлжээ дэлгүүр
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -98,14 +124,38 @@ export default function ChainStorePage() {
                 key={store.id}
                 className="border border-blue-700 dark:border-white rounded-xl p-6 hover:shadow-lg transition-shadow bg-card"
               >
-                <div className="overflow-hidden rounded-xl mb-4">
-                  <Image
-                    src={store.image}
-                    alt={store.name}
-                    width={500}
-                    height={500}
-                    className="rounded-xl w-full h-50 object-cover transition-transform duration-300 hover:scale-110"
-                  />
+                <div className="mb-4">
+                  <Carousel
+                    className="w-full"
+                    plugins={[
+                      Autoplay({
+                        delay: 4000,
+                        stopOnInteraction: false,
+                      }),
+                    ]}
+                  >
+                    <CarouselContent className="ml-0">
+                      {store.images.map((src, index) => (
+                        <CarouselItem key={index} className="pl-0">
+                          <div className="overflow-hidden rounded-xl">
+                            <Image
+                              src={src}
+                              alt={`${store.name} зураг ${index + 1}`}
+                              width={500}
+                              height={300}
+                              className="w-full h-52 sm:h-56 md:h-64 object-cover transition-transform duration-300 hover:scale-110"
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    {store.images.length > 1 && (
+                      <>
+                        <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 border-0 bg-black/30 hover:bg-black/50 text-white" />
+                        <CarouselNext className="right-2 top-1/2 -translate-y-1/2 border-0 bg-black/30 hover:bg-black/50 text-white" />
+                      </>
+                    )}
+                  </Carousel>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">
                   {store.name}
@@ -114,15 +164,20 @@ export default function ChainStorePage() {
                   {store.description}
                 </p>
                 <div className="space-y-3 text-muted-foreground mb-4">
-                  <p className="flex items-start gap-2">
-                    <span className="font-semibold text-foreground shrink-0">
-                      Хаяг:
-                    </span>
-                    {store.address}
-                  </p>
+                  <div className="flex items-start gap-2 text-sm">
+                    <MapPin className="w-4 h-4 mt-1 text-blue-600 dark:text-blue-400 shrink-0" />
+                    <a
+                      href={store.mapLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-blue-600 dark:hover:text-blue-300 leading-snug"
+                    >
+                      {store.address}
+                    </a>
+                  </div>
                   <p className="flex items-center gap-2">
                     <span className="font-semibold text-foreground shrink-0">
-                      Утас:
+                      <Phone className="w-4 h-4 mt-1 text-blue-600 dark:text-blue-400 shrink-0" />
                     </span>
                     <a
                       href={`tel:${store.phone.replace(/\s/g, "")}`}
@@ -131,10 +186,10 @@ export default function ChainStorePage() {
                       {store.phone}
                     </a>
                   </p>
-                  <p>
+                  <p className="flex items-center gap-2">
                     <span className="font-semibold text-foreground">
-                      Нээлт:
-                    </span>{" "}
+                      <Clock className="w-4 h-4 mt-1 text-blue-600 dark:text-blue-400 shrink-0" />
+                    </span>
                     {store.hours}
                   </p>
                 </div>

@@ -94,12 +94,12 @@ export const Header = () => {
                 {item.label}
               </Link>
             ))}
-            <div className="p-1 bg-blue-500">
+            <div className=" bg-red-500 rounded-md">
             <Button
               variant="link"
               className={cn(
                 "no-underline hover:no-underline cursor-pointer justify-start",
-                "text-foreground hover:text-blue-600 dark:hover:text-blue-400",
+                "text-foreground hover:text-white  dark:hover:text-blue-400",
                 "transition-colors",
                 "gap-2"
               )}

@@ -11,7 +11,7 @@ export const Footer = () => {
   ]
 
   return (
-    <footer className="w-full border-t border-amber-300 bg-[#0066B3] mt-auto">
+    <footer className="w-full border-t border-amber-300 bg-blue-700 mt-auto">
       <div className="px-4 md:px-8 lg:px-16 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}

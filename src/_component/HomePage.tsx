@@ -87,7 +87,7 @@ export default function HomePage() {
             Бидний тухай
           </h2> */}
           <p className="text-2xl md:text-3xl font-semibold text-black dark:text-white text-center mb-2 tracking-wide">
-            People <span className="text-sky-500 mx-1">•</span> First{" "}
+            People <span className="text-sky-500 mx-1">•</span> First
             <span className="text-sky-500 mx-1">•</span> Health
           </p>
           <p className="text-lg text-black/80 text-center mb-12 leading-relaxed dark:text-white">
