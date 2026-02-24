@@ -8,7 +8,7 @@ export default function Home() {
     <div className="mt-15 mb-15 relative">
       <CoverCarousel />
       <HomePage />
-      <ComingSoonBadge />
+      
     </div>
   );
 }
