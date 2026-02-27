@@ -1,6 +1,12 @@
+ "use client"
+
+import { useLanguage } from "./LanguageProvider"
 import { cn } from "@/lib/utils"
 
 export default function HomePage() {
+  const { lang } = useLanguage()
+  const isJa = lang === "ja"
+
   const products = [
     {
       id: 1,
@@ -48,10 +54,13 @@ export default function HomePage() {
 
   const categories = ["All", "Electronics", "Accessories", "Basics"]
 
-  const vision =
+  const visionMn =
     "Монгол хүн бүрийн эрүүл, урт удаан амьдралын чанарыг Японы хүнсний соёл, стандартын тусламжтайгаар дэлхийн түвшинд хүргэх."
 
-  const values = [
+  const visionJa =
+    "日本の食品文化と品質基準を通じて、モンゴルの人々一人ひとりの健康で豊かな生活の質を世界水準へ引き上げること。"
+
+  const valuesMn = [
     {
       title: "People",
       subtitle: "Хүн төвтэй соёл",
@@ -78,34 +87,82 @@ export default function HomePage() {
     },
   ]
 
+  const valuesJa = [
+    {
+      title: "People",
+      subtitle: "人を中心にした文化",
+      items: [
+        "お客様第一主義：私たちは単なる商品供給者ではなく、ご家庭の健康パートナーでありたいと考えています。",
+        "信頼：日本品質をモンゴルのご家庭一つひとつに、誠実かつ透明性を持ってお届けします。",
+      ],
+    },
+    {
+      title: "First",
+      subtitle: "品質を最優先し、一歩先へ",
+      items: [
+        "品質基準が第一：日本の厳しい食品基準を満たした商品のみを厳選し、品質面で妥協しません。",
+        "チャレンジ精神：日本の食品技術や食文化の最新トレンドを、いち早くモンゴル市場へ紹介します。",
+      ],
+    },
+    {
+      title: "Health",
+      subtitle: "健康を最優先に考える",
+      items: [
+        "長寿の秘訣：\"食は薬\" という考えのもと、安心・安全で栄養バランスの良い食品を提案します。",
+        "健康な未来へ：今日の正しい食選びが、明日の健やかな社会につながると信じています。",
+      ],
+    },
+  ]
+
+  const vision = isJa ? visionJa : visionMn
+  const values = isJa ? valuesJa : valuesMn
+
   return (
     <main className="min-h-screen">
       {/* Бидний тухай - People • First • Health */}
       <section className="bg-white px-4 md:px-8 lg:px-16 py-14 md:py-20 dark:bg-gray-800">
         <div className="max-w-4xl mx-auto">
-          {/* <h2 className="text-3xl md:text-4xl font-bold text-black text-center mb-6">
-            Бидний тухай
-          </h2> */}
+          <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white text-center mb-4">
+            {isJa ? "会社概要" : "Бидний тухай"}
+          </h2>
           <p className="text-2xl md:text-3xl font-semibold text-black dark:text-white text-center mb-2 tracking-wide">
             People <span className="text-sky-500 mx-1">•</span> First
             <span className="text-sky-500 mx-1">•</span> Health
           </p>
           <p className="text-lg text-black/80 text-center mb-12 leading-relaxed dark:text-white">
-            Бидний үйл ажиллагааны цөмд <strong>ХҮН</strong> (People) байдаг. Тийм
-            ч учраас бид таны эрүүл мэндийн төлөө хамгийн чанартайг нь{" "}
-            <strong>НЭГДҮГЭЭРТ</strong> (First) тавьж, Японы уламжлалт болон
-            орчин үеийн <strong>ЭРҮҮЛ</strong> (Health) хүнсний соёлыг таны
-            ширээнд авчирна. Бид зөвхөн импортлогч биш, таны эрүүл амьдралын
-            хэв маягийн хамтрагч билээ.
+            {isJa ? (
+              <>
+                私たちの事業の中心には常に<strong>「人（People）」</strong>
+                がいます。だからこそ、お客様の健康のために最も高い{" "}
+                <strong>品質（First）</strong>
+                を優先し、日本の伝統と現代のヘルシーな{" "}
+                <strong>食文化（Health）</strong>
+                を食卓にお届けしています。私たちは単なる輸入業者ではなく、
+                あなたの健康的なライフスタイルのパートナーでありたいと考えています。
+              </>
+            ) : (
+              <>
+                Бидний үйл ажиллагааны цөмд <strong>ХҮН</strong> (People) байдаг.
+                Тийм ч учраас бид таны эрүүл мэндийн төлөө хамгийн чанартайг нь{" "}
+                <strong>НЭГДҮГЭЭРТ</strong> (First) тавьж, Японы уламжлалт болон
+                орчин үеийн <strong>ЭРҮҮЛ</strong> (Health) хүнсний соёлыг таны
+                ширээнд авчирна. Бид зөвхөн импортлогч биш, таны эрүүл амьдралын
+                хэв маягийн хамтрагч билээ.
+              </>
+            )}
           </p>
 
           <div className="border-t border-sky-200 pt-10 dark:border-white">
-            <h3 className="text-xl font-bold text-black mb-3 dark:text-white">Алсын хараа</h3>
+            <h3 className="text-xl font-bold text-black mb-3 dark:text-white">
+              {isJa ? "ビジョン" : "Алсын хараа"}
+            </h3>
             <p className="text-black/80 leading-relaxed dark:text-white">{vision}</p>
           </div>
 
           <div className="mt-10">
-            <h3 className="text-xl font-bold text-black mb-6 dark:text-white">Үнэт зүйлс</h3>
+            <h3 className="text-xl font-bold text-black mb-6 dark:text-white">
+              {isJa ? "バリュー" : "Үнэт зүйлс"}
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {values.map((v, i) => (
                 <div
@@ -133,93 +190,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Цагаан хэсэг - Page Header */}
-      {/* {<section className="bg-sky-100 px-4 md:px-8 lg:px-16 py-12">
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            Our Products
-          </h1>
-          <p className="text-lg text-black/70">
-            Explore our wide range of high-quality products
-          </p>
-        </div>
-
-        {/* Category Filter - цагаан дэвсгэр, цэнхэр сонголт */}
-        {/* <div className="mb-8 flex flex-wrap gap-3">
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={cn(
-                "px-4 py-2 rounded-lg border-2 transition-colors",
-                category === "All"
-                  ? "border-sky-500 bg-white text-black shadow-sm"
-                  : "border-sky-200 bg-white/80 text-black hover:border-sky-500 hover:bg-white"
-              )}
-            >
-              {category}
-            </button>
-          ))}
-        </div> */}
-      {/* </section>} */}
-
-      {/* Цэнхэр хэсэг - Products Grid */}
-      {/* {<section className="bg-sky-100 px-4 md:px-8 lg:px-16 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className={cn(
-                "border-2 border-sky-200 rounded-lg p-6",
-                "hover:shadow-lg transition-shadow bg-white",
-                "flex flex-col gap-3"
-              )}
-            >
-              {/* Category Badge - цэнхэр */}
-              {/* <span className="inline-block w-fit px-3 py-1 bg-sky-100 text-sky-800 text-sm rounded-full border border-sky-200">
-                {product.category}
-              </span> */}
-
-              {/* Product Info */}
-              {/* <h2 className="text-2xl font-semibold text-black">
-                {product.name}
-              </h2>
-              <p className="text-black/70 grow">
-                {product.description}
-              </p> */}
-
-              {/* Price */}
-              {/* <div className="flex items-center justify-between pt-4 border-t border-sky-200">
-                <span className="text-3xl font-bold text-black">
-                  {product.price}
-                </span>
-                <button
-                  className={cn(
-                    "px-4 py-2 bg-black text-white rounded-lg",
-                    "hover:bg-black/80 transition-colors font-semibold"
-                  )}
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>} */} 
-
-      {/* Хар хэсэг - CTA */}
-  {/* {<section className="bg-black px-4 md:px-8 lg:px-16 py-12">
-    <div className="max-w-2xl mx-auto text-center">
-      <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-        Бидэнтэй нэгдээрэй
-      </h2>
-      <p className="text-white/80 mb-6">
-        Шинэ бүтээгдэхүүн, урамшуулалтай танилцаарай.
-      </p>
-      <button className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-sky-100 transition-colors border-2 border-white">
-        Илүү дэлгэрэнгүй
-      </button>
-    </div>
-  </section>} */}
+      
     </main>
   )
 }

@@ -5,9 +5,9 @@ import { useEffect, useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const images = [
-  "/cover-carousel/Cover1.jpg",
-  "/cover-carousel/Cover2.jpg",
-  "/cover-carousel/Cover3.jpg",
+  "/cover-carousel/zurag.jpg",
+  "/cover-carousel/zurag2.jpg",
+  "/cover-carousel/zurag3.jpg",
 ]
 
 export function CoverCarousel() {
@@ -27,12 +27,14 @@ export function CoverCarousel() {
 
   return (
     <div className="relative w-full overflow-hidden">
+      <h4 className="text-8xl font-bold text-center mt-5 top-5 left-15 absolute text-white z-50">MITSUYA</h4>
+      <h4 className="text-4xl font-bold italic text-center mt-5 bottom-10 right-15 absolute text-white z-50">Nippon Store</h4> 
       <div
         className="flex transition-transform duration-500 ease-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((src, i) => (
-          <div key={i} className="mt-6 relative w-full shrink-0 aspect-9/2 min-h-50 md:min-h-70">
+          <div key={i} className="mt-5 relative w-full shrink-0 aspect-9/2 min-h-50 md:min-h-70">
             <Image
               src={src}
               alt={`Cover ${i + 1}`}
