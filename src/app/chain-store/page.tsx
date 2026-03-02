@@ -16,7 +16,7 @@ export default function ChainStorePage() {
     {
       id: 1,
       images: [
-        "/branch-BZ/fba10184-2b3c-4bc5-999f-55a3299acb44.jpeg",
+        "/branch-BZ/640719829_941916421861530_741950483395615021_n (1).jpg",
         "/branch-BZ/e631222e-c2a3-4c61-8471-913b65513b96.jpeg",
         "/branch-BZ/dde2cfe2-1064-4361-9a30-d263f5467f6c.jpeg",
       ],
@@ -46,9 +46,9 @@ export default function ChainStorePage() {
     {
       id: 3,
       images: [
-        "/branch-yarmag/2073_top.jpg",
-        "/branch-yarmag/2073_top.jpg",
-        "/branch-yarmag/2073_top.jpg",
+        "/branch-yarmag/637054358_1990407631903477_4608856014679168995_n.jpg",
+        "/branch-yarmag/637808568_782567714439003_9156774103831943008_n.jpg",
+        "/branch-yarmag/638334267_1145280427583543_4534680063975962863_n.jpg",
       ],
       name: "Яармаг салбар",
       address: "Хан-Уул дүүрэг, Яармаг, Foodcity худалдааны төв",
@@ -189,7 +189,7 @@ export default function ChainStorePage() {
                                 alt={`${store.name} зураг ${index + 1}`}
                                 width={500}
                                 height={300}
-                                className="w-full h-52 sm:h-56 md:h-64 object-cover transition-transform duration-300 hover:scale-110"
+                                className="w-full h-52 sm:h-56 md:h-64 object-fit transition-transform duration-300 hover:scale-110"
                               />
                             </div>
                           </CarouselItem>
