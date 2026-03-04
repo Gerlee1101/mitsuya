@@ -150,7 +150,7 @@ export const Header = () => {
             </Button></div>
           </div>
           {/* Mobile language toggle */}
-          <div className="flex items-center justify-end gap-1 pt-2 text-xs">
+          <div className="flex items-center pl-4 gap-1 text-xs">
             <button
               onClick={() => setLang("mn")}
               className={cn(
