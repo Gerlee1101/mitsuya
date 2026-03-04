@@ -7,6 +7,7 @@ export const Footer = () => {
     { label: "Нүүр", href: "/" },
     { label: "Салбарууд", href: "/chain-store" },
     { label: "Бүтээгдэхүүн", href: "/products" },
+    { label: "Жорууд", href: "/recipes" },
     { label: "Холбоо барих", href: "/contact" },
   ]
 

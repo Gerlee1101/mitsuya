@@ -25,11 +25,11 @@ export const Header = () => {
           { label: "お問い合わせ", href: "/contact" },
         ]
       : [
-          { label: "Home", href: "/" },
-          { label: "Chain store", href: "/chain-store" },
-          { label: "Products", href: "/products" },
-          { label: "Recipes", href: "/recipes" },
-          { label: "Contact", href: "/contact" },
+          { label: "Нүүр", href: "/" },
+          { label: "Салбарууд", href: "/chain-store" },
+          { label: "Бүтээгдэхүүн", href: "/products" },
+          { label: "Жорууд", href: "/recipes" },
+          { label: "Холбоо барих", href: "/contact" },
         ]
 
   return (

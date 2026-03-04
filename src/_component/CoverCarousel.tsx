@@ -27,14 +27,26 @@ export function CoverCarousel() {
 
   return (
     <div className="relative w-full overflow-hidden">
-      <h4 className="text-8xl font-bold text-center mt-5 top-5 left-15 absolute text-white z-50">MITSUYA</h4>
-      <h4 className="text-4xl font-bold italic text-center mt-5 bottom-10 right-15 absolute text-white z-50">Nippon Store</h4> 
+      {/* Brand text overlay */}
+      <div className="pointer-events-none absolute inset-0 z-10">
+        {/* Top-left: MITSUYA */}
+        <h4 className="absolute top-6 left-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-[0.25em] text-white drop-shadow-md">
+          MITSUYA
+        </h4>
+        {/* Bottom-right: Nippon Store */}
+        <h4 className="absolute bottom-10 right-6 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold italic text-white drop-shadow-md">
+          Nippon Store
+        </h4>
+      </div>
       <div
         className="flex transition-transform duration-500 ease-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((src, i) => (
-          <div key={i} className="mt-5 relative w-full shrink-0 aspect-9/2 min-h-50 md:min-h-70">
+          <div
+            key={i}
+            className="relative w-full shrink-0 aspect-9/2 min-h-50 md:min-h-70"
+          >
             <Image
               src={src}
               alt={`Cover ${i + 1}`}
