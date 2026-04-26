@@ -23,6 +23,7 @@ export const Header = () => {
           { label: "商品", href: "/products" },
           { label: "レシピ", href: "/recipes" },
           { label: "お問い合わせ", href: "/contact" },
+          { label: "ギフトセット", href: "https://build-a-bundle-bonanza.vercel.app" },
         ]
       : [
           { label: "Нүүр", href: "/" },
@@ -30,6 +31,7 @@ export const Header = () => {
           { label: "Бүтээгдэхүүн", href: "/products" },
           { label: "Жорууд", href: "/recipes" },
           { label: "Холбоо барих", href: "/contact" },
+          { label: "Бэлгийн багц", href: "https://build-a-bundle-bonanza.vercel.app" },
         ]
 
   return (
